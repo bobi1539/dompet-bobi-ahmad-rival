@@ -8,14 +8,12 @@
         </h6>
         <ul class="nav flex-column">
             <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/pockets">
-                    <span data-feather="home"></span>
+                <a class="nav-link {{ Request::is('pockets*') ? 'active' : '' }}" aria-current="page" href="/pockets">
                     Dompet
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/categories">
-                    <span data-feather="file"></span>
                     Kategori
                 </a>
             </li>

@@ -40,6 +40,9 @@
     {{-- sweet alert --}}
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+    {{-- data table --}}
+    <script src="{{ asset('js/myscript.js') }}"></script>
+
 
 </body>
 

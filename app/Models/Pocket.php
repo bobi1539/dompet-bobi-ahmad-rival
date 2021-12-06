@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Pocket extends Model
 {
     use HasFactory;
+
+    public function pocketStatus()
+    {   
+        return $this->belongsTo(PocketStatus::class);
+    }
 }

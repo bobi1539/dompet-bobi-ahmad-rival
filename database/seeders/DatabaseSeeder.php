@@ -25,6 +25,6 @@ class DatabaseSeeder extends Seeder
             'name' => 'tidak aktif'
         ]);
 
-        Pocket::factory(10)->create();
+        Pocket::factory(30)->create();
     }
 }

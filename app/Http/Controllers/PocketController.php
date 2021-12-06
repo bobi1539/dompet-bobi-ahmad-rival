@@ -15,7 +15,8 @@ class PocketController extends Controller
     public function index()
     {
         return view('pockets.index', [
-            'title' => 'Dompet'
+            'title' => 'Dompet',
+            'pockets' => Pocket::all()->load('pocketStatus')
         ]);
     }
 
