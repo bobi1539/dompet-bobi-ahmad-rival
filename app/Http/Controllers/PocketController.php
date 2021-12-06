@@ -14,7 +14,9 @@ class PocketController extends Controller
      */
     public function index()
     {
-        //
+        return view('pockets.index', [
+            'title' => 'Dompet'
+        ]);
     }
 
     /**
