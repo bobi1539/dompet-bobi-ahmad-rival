@@ -49,7 +49,10 @@ class PocketController extends Controller
      */
     public function show(Pocket $pocket)
     {
-        //
+        return view('pockets.show', [
+            'title' => 'Dompet',
+            'pocket' => $pocket
+        ]);
     }
 
     /**

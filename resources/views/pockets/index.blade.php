@@ -45,7 +45,7 @@
 
                                         </button>
                                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                            <li><a class="dropdown-item" href="#">Detail</a></li>
+                                            <li><a class="dropdown-item" href="/pockets/{{ $pocket->id }}">Detail</a></li>
                                             <li><a class="dropdown-item" href="#">Ubah</a></li>
                                             @if ($pocket->pocketStatus->id == 1)
                                                 <li><a class="dropdown-item" href="#">Tidak Aktif</a></li>
