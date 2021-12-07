@@ -51,14 +51,14 @@
                                                 @csrf
                                                 @if ($category->categoryStatus->id == 1)
                                                     <li>
-                                                        <input type="hidden" name="pocket_status_id" value="2">
+                                                        <input type="hidden" name="category_status_id" value="2">
                                                         <button class="dropdown-item">
                                                             Tidak Aktif
                                                         </button>
                                                     </li>
                                                 @else
                                                     <li>
-                                                        <input type="hidden" name="pocket_status_id" value="1">
+                                                        <input type="hidden" name="category_status_id" value="1">
                                                         <button class="dropdown-item">
                                                             Aktif
                                                         </button>

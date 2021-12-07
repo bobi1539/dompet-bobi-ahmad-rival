@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreCategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
 use App\Models\Category;
+use App\Models\CategoryStatus;
+use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
@@ -28,7 +30,10 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('categories.create', [
+            'title' => 'Buat Baru Kategori',
+            'statuses' => CategoryStatus::orderBy('name')->get()
+        ]);
     }
 
     /**
@@ -39,7 +44,15 @@ class CategoryController extends Controller
      */
     public function store(StoreCategoryRequest $request)
     {
-        //
+        $validatedData = $request->validate([
+            'category_status_id'  => [],
+            'name'              => ['required', 'max:255', 'min:5'],
+            'description'       => ['max:100']
+        ]);
+
+        Category::create($validatedData);
+
+        return redirect('/categories')->with('messageSuccess', 'Kategori berhasil dibuat');
     }
 
     /**
@@ -50,7 +63,10 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        //
+        return view('categories.show', [
+            'title' => 'Detail Kategori',
+            'category' => $category
+        ]);
     }
 
     /**
@@ -61,7 +77,11 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        return view('categories.edit', [
+            'title' => 'Edit Kategori',
+            'category' => $category,
+            'statuses' => CategoryStatus::orderBy('name')->get()
+        ]);
     }
 
     /**
@@ -73,7 +93,15 @@ class CategoryController extends Controller
      */
     public function update(UpdateCategoryRequest $request, Category $category)
     {
-        //
+        $validatedData = $request->validate([
+            'category_status_id'  => [],
+            'name'              => ['required', 'max:255', 'min:5'],
+            'description'       => ['max:100']
+        ]);
+
+        Category::where('id', $category->id)->update($validatedData);
+
+        return redirect('/categories')->with('messageSuccess', 'Kategori berhasil di ubah');
     }
 
     /**
@@ -82,8 +110,14 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category)
+    public function destroy(Request $request, Category $category)
     {
-        //
+        $data = $request->validate([
+            'category_status_id' => []
+        ]);
+
+        Category::where('id', $category->id)->update($data);
+
+        return redirect('/categories')->with('messageSuccess', 'Kategori Status berhasil di ubah');
     }
 }
