@@ -76,7 +76,11 @@ class PocketController extends Controller
      */
     public function edit(Pocket $pocket)
     {
-        //
+        return view('pockets.edit', [
+            'title' => 'Edit Dompet',
+            'pocket' => $pocket,
+            'statuses' => PocketStatus::orderBy('name')->get()
+        ]);
     }
 
     /**
@@ -88,7 +92,16 @@ class PocketController extends Controller
      */
     public function update(Request $request, Pocket $pocket)
     {
-        //
+        $validatedData = $request->validate([
+            'pocket_status_id'  => [],
+            'name'              => ['required', 'max:255', 'min:5'],
+            'reference'         => [],
+            'description'       => ['max:100']
+        ]);
+
+        Pocket::where('id', $pocket->id)->update($validatedData);
+
+        return redirect('/pockets')->with('messageSuccess', 'Dompet berhasil di ubah');
     }
 
     /**
