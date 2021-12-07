@@ -4,18 +4,16 @@
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">Dompet</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
-            {{-- <div class="btn-group me-2">
-                <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
-                <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
-            </div> --}}
-            <button type="button" class="btn btn-sm btn-outline-secondary">
-                <span data-feather="calendar"></span>
+            <a href="/pockets/create" class="btn btn-sm btn-outline-secondary">
                 Buat Baru
-            </button>
+            </a>
         </div>
     </div>
     <div class="row">
         <div class="col-lg-12">
+            @if (session()->has('messageSuccess'))
+                <div id="flash-data-success" data-flashdata="{{ session('messageSuccess') }}"></div>
+            @endif
             <div class="table-responsive">
                 <table class="table table-bordered" id="pocket-table">
                     <thead>
@@ -45,7 +43,8 @@
 
                                         </button>
                                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                            <li><a class="dropdown-item" href="/pockets/{{ $pocket->id }}">Detail</a></li>
+                                            <li><a class="dropdown-item" href="/pockets/{{ $pocket->id }}">Detail</a>
+                                            </li>
                                             <li><a class="dropdown-item" href="#">Ubah</a></li>
                                             @if ($pocket->pocketStatus->id == 1)
                                                 <li><a class="dropdown-item" href="#">Tidak Aktif</a></li>

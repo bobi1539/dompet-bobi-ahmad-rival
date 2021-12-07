@@ -9,6 +9,13 @@ class Pocket extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name',
+        'reference',
+        'description',
+        'pocket_status_id'
+    ];
+
     public function pocketStatus()
     {   
         return $this->belongsTo(PocketStatus::class);

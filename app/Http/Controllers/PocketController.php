@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pocket;
+use App\Models\PocketStatus;
 use Illuminate\Http\Request;
 
 class PocketController extends Controller
@@ -15,7 +16,7 @@ class PocketController extends Controller
     public function index()
     {
         return view('pockets.index', [
-            'title' => 'Dompet',
+            'title' => 'Detail Dompet',
             'pockets' => Pocket::all()->load('pocketStatus')
         ]);
     }
@@ -27,7 +28,10 @@ class PocketController extends Controller
      */
     public function create()
     {
-        //
+        return view('pockets.create', [
+            'title' => 'Buat Baru Dompet',
+            'statuses' => PocketStatus::orderBy('name')->get()
+        ]);
     }
 
     /**
@@ -38,7 +42,16 @@ class PocketController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'pocket_status_id'  => [],
+            'name'              => ['required', 'max:255', 'min:5'],
+            'reference'         => [],
+            'description'       => ['max:100']
+        ]);
+
+        Pocket::create($validatedData);
+
+        return redirect('/pockets')->with('messageSuccess', 'Dompet berhasil dibuat');
     }
 
     /**

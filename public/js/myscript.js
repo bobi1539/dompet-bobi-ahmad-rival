@@ -11,7 +11,6 @@ if (flashDataSuccess){
             icon: 'success',
             title: 'Sukses',
             text: flashDataSuccess.getAttribute('data-flashdata'),
-            confirmButtonColor: '#191c1f',
         }); 
     }
 }
@@ -24,7 +23,6 @@ if (flashDataError){
             icon: 'error',
             title: 'Opps..',
             text: flashDataError.getAttribute('data-flashdata'),
-            confirmButtonColor: '#191c1f',
         }); 
     }
 }
