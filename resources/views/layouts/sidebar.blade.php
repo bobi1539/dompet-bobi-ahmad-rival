@@ -2,9 +2,6 @@
     <div class="position-sticky pt-3">
         <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
             <span>Master</span>
-            <a class="link-secondary" href="#" aria-label="Add a new report">
-                <span data-feather="plus-circle"></span>
-            </a>
         </h6>
         <ul class="nav flex-column">
             <li class="nav-item">
@@ -15,6 +12,21 @@
             <li class="nav-item">
                 <a class="nav-link {{ Request::is('categories*') ? 'active' : '' }}" href="/categories">
                     Kategori
+                </a>
+            </li>
+        </ul>
+        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+            <span>Transaksi</span>
+        </h6>
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link {{ Request::is('pockets/in*') ? 'active' : '' }}" aria-current="page" href="/pockets/in">
+                    Dompet Masuk
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {{ Request::is('pockets/out*') ? 'active' : '' }}" href="/pockets/out">
+                    Dompet Keluar
                 </a>
             </li>
         </ul>
