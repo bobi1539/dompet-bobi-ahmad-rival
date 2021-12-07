@@ -13,7 +13,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/categories">
+                <a class="nav-link {{ Request::is('categories*') ? 'active' : '' }}" href="/categories">
                     Kategori
                 </a>
             </li>

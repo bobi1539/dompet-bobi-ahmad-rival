@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Category;
 use App\Models\CategoryStatus;
 use App\Models\Pocket;
 use App\Models\PocketStatus;
@@ -35,6 +36,8 @@ class DatabaseSeeder extends Seeder
         CategoryStatus::create([
             'name' => 'tidak aktif'
         ]);
+
+        Category::factory(30)->create();
 
         
     }

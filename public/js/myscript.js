@@ -1,6 +1,7 @@
 
 $(document).ready(function(){
     $('#pocket-table').DataTable();
+    $('#category-table').DataTable();
 });
 
 const flashDataSuccess = document.getElementById('flash-data-success');
