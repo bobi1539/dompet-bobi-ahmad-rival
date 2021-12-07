@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PocketController;
+use App\Http\Controllers\PocketInController;
+use App\Http\Controllers\PocketOutController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,3 +23,5 @@ Route::get('/', function () {
 
 Route::resource('/pockets', PocketController::class);
 Route::resource('/categories', CategoryController::class);
+Route::resource('/transactions-in', PocketInController::class);
+Route::resource('/transactions-out', PocketOutController::class);

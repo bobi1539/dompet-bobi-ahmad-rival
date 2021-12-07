@@ -20,12 +20,12 @@
         </h6>
         <ul class="nav flex-column">
             <li class="nav-item">
-                <a class="nav-link {{ Request::is('pockets/in*') ? 'active' : '' }}" aria-current="page" href="/pockets/in">
+                <a class="nav-link {{ Request::is('transactions-in*') ? 'active' : '' }}" aria-current="page" href="/transactions-in">
                     Dompet Masuk
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{ Request::is('pockets/out*') ? 'active' : '' }}" href="/pockets/out">
+                <a class="nav-link {{ Request::is('transactions-out*') ? 'active' : '' }}" href="/transactions-out">
                     Dompet Keluar
                 </a>
             </li>

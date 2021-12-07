@@ -14,7 +14,13 @@ class TransactionFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'code' => $this->faker->word(),
+            'description' => $this->faker->sentence(3),
+            'date' => $this->faker->date(),
+            'value' => $this->faker->randomNumber(5, true),
+            'pocket_id' => mt_rand(1, 30),
+            'category_id' => mt_rand(1, 30),
+            'transaction_status_id' => mt_rand(1, 2),
         ];
     }
 }

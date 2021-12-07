@@ -6,6 +6,8 @@ use App\Models\Category;
 use App\Models\CategoryStatus;
 use App\Models\Pocket;
 use App\Models\PocketStatus;
+use App\Models\Transaction;
+use App\Models\TransactionStatus;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -38,6 +40,16 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Category::factory(30)->create();
+
+        TransactionStatus::create([
+            'name' => 'Masuk'
+        ]);
+
+        TransactionStatus::create([
+            'name' => 'Keluar'
+        ]);
+
+        Transaction::factory(30)->create();
 
         
     }
