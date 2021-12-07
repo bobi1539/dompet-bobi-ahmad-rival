@@ -110,8 +110,14 @@ class PocketController extends Controller
      * @param  \App\Models\Pocket  $pocket
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Pocket $pocket)
+    public function destroy(Request $request, Pocket $pocket)
     {
-        //
+        $data = $request->validate([
+            'pocket_status_id' => []
+        ]);
+
+        Pocket::where('id', $pocket->id)->update($data);
+
+        return redirect('/pockets')->with('messageSuccess', 'Dompet Status berhasil di ubah');
     }
 }

@@ -45,12 +45,28 @@
                                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                             <li><a class="dropdown-item" href="/pockets/{{ $pocket->id }}">Detail</a>
                                             </li>
-                                            <li><a class="dropdown-item" href="/pockets/{{ $pocket->id }}/edit">Ubah</a></li>
-                                            @if ($pocket->pocketStatus->id == 1)
-                                                <li><a class="dropdown-item" href="#">Tidak Aktif</a></li>
-                                            @else
-                                                <li><a class="dropdown-item" href="#">Aktif</a></li>
-                                            @endif
+                                            <li><a class="dropdown-item" href="/pockets/{{ $pocket->id }}/edit">Ubah</a>
+                                            </li>
+                                            <form action="/pockets/{{ $pocket->id }}" method="POST"
+                                                class="d-inline">
+                                                @method('delete')
+                                                @csrf
+                                                @if ($pocket->pocketStatus->id == 1)
+                                                    <li>
+                                                        <input type="hidden" name="pocket_status_id" value="2">
+                                                        <button class="dropdown-item">
+                                                            Tidak Aktif
+                                                        </button>
+                                                    </li>
+                                                @else
+                                                    <li>
+                                                        <input type="hidden" name="pocket_status_id" value="1">
+                                                        <button class="dropdown-item">
+                                                            Aktif
+                                                        </button>
+                                                    </li>
+                                                @endif
+                                            </form>
                                         </ul>
                                     </div>
                                 </td>
