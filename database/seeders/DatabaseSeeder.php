@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\CategoryStatus;
 use App\Models\Pocket;
 use App\Models\PocketStatus;
 use Illuminate\Database\Seeder;
@@ -26,5 +27,15 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Pocket::factory(30)->create();
+
+        CategoryStatus::create([
+            'name' => 'aktif'
+        ]);
+
+        CategoryStatus::create([
+            'name' => 'tidak aktif'
+        ]);
+
+        
     }
 }
