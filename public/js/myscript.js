@@ -2,6 +2,8 @@
 $(document).ready(function(){
     $('#pocket-table').DataTable();
     $('#category-table').DataTable();
+    $('#pocket-in-table').DataTable();
+    $('#pocket-out-table').DataTable();
 });
 
 const flashDataSuccess = document.getElementById('flash-data-success');
